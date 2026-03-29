@@ -13,7 +13,11 @@
     <h2>Entre em Contato</h2>
     <p>Ficaremos felizes em ouvir você! Envie sua dúvida, sugestão ou proposta pelo formulário abaixo:</p>
 
-    <form>
+    <form action="https://formsubmit.co/joaodebossan@outlook.com" method="POST">
+      <!-- Desativa o captcha do FormSubmit (opcional) -->
+      <input type="hidden" name="_captcha" value="false">
+      <!-- Se quiser, adicione aqui o link da página de agradecimento: -->
+      <!-- <input type="hidden" name="_next" value="https://joaodebossan.github.io/obrigado.html"> -->
       <input type="text" name="nome" placeholder="Seu nome" required style="padding: 10px; border-radius: 5px; border: none;">
       <input type="email" name="email" placeholder="Seu e-mail" required style="padding: 10px; border-radius: 5px; border: none;">
       <textarea name="mensagem" placeholder="Sua mensagem" rows="5" required style="padding: 10px; border-radius: 5px; border: none;"></textarea>
