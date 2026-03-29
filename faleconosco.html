@@ -15,19 +15,22 @@
     <h2>Entre em Contato</h2>
     <p>Ficaremos felizes em ouvir você! Envie sua dúvida, sugestão ou proposta pelo formulário abaixo:</p>
 
-    <form action="https://formsubmit.co/joaodebossan@outlook.com" method="POST">
+    <form action="https://formsubmit.co/joaodebossan@outlook.com" method="POST"
+      style="width: 100%; max-width: 550px; margin: 0 auto;">
       <!-- Desativa o captcha do FormSubmit (opcional) -->
       <input type="hidden" name="_captcha" value="false">
       <!-- Se quiser, adicione aqui o link da página de agradecimento: -->
       <!-- <input type="hidden" name="_next" value="https://joaodebossan.github.io/obrigado.html"> -->
       <input type="text" name="nome" placeholder="Seu nome" required
-        style="padding: 10px; border-radius: 5px; border: none;">
+        style="padding: 15px; border-radius: 5px; border: none; font-family: inherit;">
       <input type="email" name="email" placeholder="Seu e-mail" required
-        style="padding: 10px; border-radius: 5px; border: none;">
-      <textarea name="mensagem" placeholder="Sua mensagem" rows="5" required
-        style="padding: 10px; border-radius: 5px; border: none;"></textarea>
+        style="padding: 15px; border-radius: 5px; border: none; font-family: inherit;">
+      <textarea name="mensagem" placeholder="Sua mensagem" rows="8" required
+        style="padding: 15px; border-radius: 5px; border: none; font-family: inherit; resize: vertical; min-height: 200px;"></textarea>
       <button type="submit"
-        style="padding: 10px; border: none; border-radius: 5px; background-color: #00bcd4; color: white; font-weight: bold; cursor: pointer;">Enviar</button>
+        style="padding: 15px; border: none; border-radius: 5px; background-color: #00bcd4; color: white; font-weight: bold; font-family: inherit; cursor: pointer; font-size: 1.1em; transition: transform 0.2s;"
+        onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">Enviar
+        Mensagem</button>
     </form>
   </div>
 
