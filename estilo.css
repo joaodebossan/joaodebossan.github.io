@@ -1,34 +1,61 @@
 body {
     margin: 0;
     font-family: 'Courier New', monospace;
-    background: linear-gradient(-45deg, #0d1b2a, #1b263b, #415a77, #778da9);
+    background: linear-gradient(-45deg, #395675, #394a69, #546b85, #7d8da1);
     background-size: 400% 400%;
     animation: gradient 20s ease infinite;
     color: white;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    position: relative;
+    z-index: 0;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('midia/padrãofundo.png');
+    background-repeat: repeat;
+    opacity: 0.05;
+    /* Padrão meio transparente */
+    z-index: -1;
+    /* Atrás do conteúdo, na frente do background do body */
+    pointer-events: none;
 }
 
 @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #0b1b2b;
     padding: 20px;
     text-align: center;
     font-size: 2em;
     font-weight: bold;
-    border-bottom: 2px solid #00bcd4;
+    border-bottom: 2px solid #ffffff;
     position: sticky;
     top: 0;
     z-index: 10;
     font-weight: bolder;
     text-shadow: 2px 2px 3px black;
     color: white;
+    box-shadow: 0 0 25px #0b1b2b
 }
 
 .header {
@@ -39,11 +66,13 @@ header {
 }
 
 footer {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #0b1b2b;
     padding: 20px;
     color: white;
-    border-top: 2px solid #00bcd4;
+    border-top: 2px solid #ffffff;
     margin-top: 50px;
+    box-shadow: 0 0 25px #0b1b2b;
+    text-shadow: 2px 2px 3px black;
 }
 
 .fcontainer {
@@ -93,39 +122,46 @@ footer {
     font-weight: bolder;
     text-shadow: 2px 2px 3px black;
     color: white;
+    box-shadow: 0 0 25px #0b1b2b
 }
 
-.card-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.8s;
-}
-
-.card:hover .card-inner {
-    transform: rotateY(180deg);
-}
-
-.card:hover .card-front,
-.card:hover .card-back {
-      box-shadow: 0 0 15px #00bcd4;
-}
-
-.card-front, .card-back {
+/* Estilos dos textos do card (sobreposição e esmaecimento) */
+.card-title {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid #00bcd4;
+    font-size: 1.2em;
+    font-weight: bolder;
+    text-shadow: 2px 2px 3px black;
+    text-align: center;
+    color: white;
+    opacity: 1;
+    /* Visível por padrão */
+    transition: opacity 0.4s ease-in-out;
 }
+
+.card:hover .card-title {
+    opacity: 0;
+    /* Esconde no hover */
+}
+
+.card-desc {
+    position: absolute;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+    text-align: center;
+    padding: 0 10px;
+    color: white;
+    opacity: 0;
+    /* Escondido por padrão */
+    transition: opacity 0.4s ease-in-out;
+}
+
+.card:hover .card-desc {
+    opacity: 1;
+    /* Aparece no hover */
+}
+
+
 
 .card-back {
     transform: rotateY(180deg);
@@ -139,13 +175,14 @@ footer {
     height: 200px;
     margin: 40px auto;
     border-radius: 50%;
-    background: rgba(255,255,255,0.1);
-    border: 2px dashed #00bcd4;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px dashed #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     animation: pulse 6s infinite;
     overflow: hidden;
+    box-shadow: 0 0 25px #0b1b2b;
 }
 
 .floating-circle img {
@@ -156,8 +193,15 @@ footer {
 }
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
 }
 
 .cta {
@@ -165,20 +209,20 @@ footer {
     width: max-content;
     margin: 40px auto;
     padding: 12px 24px;
-    border: 2px solid #00bcd4;
+    border: 2px solid #ffffff;
     border-radius: 5px;
     text-align: center;
     font-weight: bold;
-    background-color: transparent;
+    background-color: #0b1b2b;
     color: #fff;
     animation: blink 1.5s infinite;
     text-decoration: none;
     text-shadow: 2px 2px 3px black;
+    box-shadow: 0 0 25px #0b1b2b
 }
 
-@keyframes blink {
-    0%, 100% { border-color: #00bcd4; color: #fff; }
-    50% { border-color: #fff; color: #00bcd4; }
+.cta:hover {
+    box-shadow: 0 0 4px #00bcd4;
 }
 
 form {
